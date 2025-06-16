@@ -29,7 +29,7 @@ To get started, clone this repository and set up the environment using the comma
 
 ```shell
 # Clone the repository (if you haven't already)
-# git clone [YOUR_GIT_REPOSITORY_URL]
+# git clone https://github.com/chishxd/autocleanse.git
 # cd autocleanse
 
 # Create a Python virtual environment
@@ -52,7 +52,7 @@ wget -O data/titanic_train.csv https://raw.githubusercontent.com/datasciencedojo
 
 ```powershell
 # Clone the repository (if you haven't already)
-# git clone [YOUR_GIT_REPOSITORY_URL]
+# git clone https://github.com/chishxd/autocleanse.git
 # cd autocleanse
 
 # Create a Python virtual environment
@@ -106,7 +106,8 @@ Cabin          77.10
 Embarked        0.22
 Name: Unnamed: 0, dtype: float64
 
---- End of Profile ---```
+--- End of Profile ---
+```
 
 ## Project Roadmap
 
