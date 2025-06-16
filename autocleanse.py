@@ -3,9 +3,10 @@ import pandas as pd
 def load_csv(data : str) -> pd.DataFrame:
     try:
         df = pd.read_csv(data)
+        return df
     except FileNotFoundError:
         print("File Not Found!")
-    return df
+        return None
 
 # [DONE]Shape: Total rows and columns.
 
@@ -43,10 +44,13 @@ def profile_data(df : pd.DataFrame):
 
     print("Count of Unique Values in Categorical Columns: ")
     for column in df.columns:
-        if (df[column].dtype.name == 'object') and (df[column].nunique()/len(df) * 100) < 5 :
+        if df[column].nunique()/len(df) * 100 < 5 :
             print(f"{column} : {df[column].nunique()}")
     print()
 
 if __name__ == "__main__":
-    df = load_csv("data/train.csv")
-    profile_data(df)
+        df = load_csv("data/train.csv")
+        if df is not None:
+            profile_data(df)
+        else:
+            print("Could not load File properly")
