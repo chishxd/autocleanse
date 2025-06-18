@@ -116,7 +116,7 @@ def handle_missing_data(df : pd.DataFrame) -> pd.DataFrame:
 #this part of the code let's us to check code in a seperate part when we are working in a modular ecosystem.
 #When this code is imported into other program, the code won't directly run, but only desired functions will run.
 if __name__ == "__main__":
-        df = load_csv("data/Synthetic_data.csv")
+        df = load_csv("data/Synthetic_data.csv") #Change file name to your dataset, I have provided train.csv in data/
         if df is not None:
             profile_dataframe(df)
             new_df = handle_missing_data(df)
