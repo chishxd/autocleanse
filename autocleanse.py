@@ -89,6 +89,7 @@ def handle_missing_data(df : pd.DataFrame) -> pd.DataFrame:
     Returns:
         df (pd.DataFrame): The cleaned DataFrame with missing values handled and specified columns dropped.
     '''
+    print("Started Cleaning the Data...")
     nullCols = [] #To store Columns with more than 60% Null Values.
     for column in df.columns:
         if df[column].isnull().sum() / len(df) * 100 > 60.00 : #Same comparision from the profiling_dataframe()
@@ -106,6 +107,8 @@ def handle_missing_data(df : pd.DataFrame) -> pd.DataFrame:
                     df[column] = df[column].fillna('Unknown')
     
     df = df.drop(columns=nullCols) #To delete the columns from listed earlier in the funtion.
+
+    print("Finished Cleaning the Data!")
     
     return df
 
@@ -113,7 +116,7 @@ def handle_missing_data(df : pd.DataFrame) -> pd.DataFrame:
 #this part of the code let's us to check code in a seperate part when we are working in a modular ecosystem.
 #When this code is imported into other program, the code won't directly run, but only desired functions will run.
 if __name__ == "__main__":
-        df = load_csv("data/train.csv")
+        df = load_csv("data/Synthetic_data.csv")
         if df is not None:
             profile_dataframe(df)
             new_df = handle_missing_data(df)
