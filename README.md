@@ -117,7 +117,7 @@ Name: Unnamed: 0, dtype: float64
 
 ## Performance
 
-The script's performance was tested on a large, synthetic 5-million-row dataset. The analysis showed the data cleaning process to be primarily **CPU-bound**. See the full experiment log [here](https://chishxd.github.io/diploma-notes/5th-Semester/The-Projects/Project-AutoCleanSE/03-OS-Performance-Testing-at-Scale))`
+The script's performance was tested on a large, synthetic 5-million-row dataset. The analysis showed the data cleaning process to be primarily **CPU-bound**. See the full experiment log [here](https://chishxd.github.io/diploma-notes/5th-Semester/The-Projects/Project-AutoCleanSE/03-OS-Performance-Testing-at-Scale)
 
 ## License
 
