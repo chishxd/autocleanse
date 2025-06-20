@@ -4,7 +4,8 @@ __pycache__/
 .venv/
 dist/
 *.egg-info/
-
+data/*
+!data/train.csv
 # IDE / OS specific
 .vscode/
 .idea/
