@@ -1,5 +1,5 @@
 import pandas as pd
-import classifyapi
+from clarion import *
 
 def load_csv(data : str) -> pd.DataFrame:
     """
@@ -47,7 +47,7 @@ def profile_dataframe(df: pd.DataFrame):
     print(df.head())
     print(f"Shape of Dataframe(rows, columns):{df.shape}\n") #Prints rows and columns in a Dataframe
     print("Name Of Each Column:")
-    for column in df.columns: #Uses For loop to go through each column in the Index of all columns in the dataframe and print them
+    for column in df.columns: #Uses For loop to go through each column in the:Python Index of all columns in the dataframe and print them
         print(column)
     print()
 
@@ -116,7 +116,7 @@ def handle_missing_data(df : pd.DataFrame) -> pd.DataFrame:
 
 def main():
     # df = load_csv("data/Synthetic_data.csv") #Change file name to your dataset, I have provided train.csv in data/
-    df = classifyapi.load_from_s3("admin", "password", "http://127.0.0.1:9000", "train.csv")
+    df = clarion.load_from_s3("admin", "password", "http://127.0.0.1:9000", "train.csv")
     if df is not None:
         profile_dataframe(df)
         new_df = handle_missing_data(df)
