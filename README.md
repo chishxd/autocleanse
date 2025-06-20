@@ -115,6 +115,10 @@ Name: Unnamed: 0, dtype: float64
 - [ ] **Feature:** Data Visualization (Histograms, Correlation Matrix)
 - [ ] **Enhancement:** Export Profile Report to JSON/HTML
 
+## Performance
+
+The script's performance was tested on a large, synthetic 5-million-row dataset. The analysis showed the data cleaning process to be primarily **CPU-bound**. See the full experiment log here: `([link to your new Forge note](https://chishxd.github.io/diploma-notes/5th-Semester/The-Projects/Project-AutoCleanSE/03-OS-Performance-Testing-at-Scale))`.
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
