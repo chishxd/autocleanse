@@ -1,23 +1,27 @@
 import pandas as pd
 
-def profile_dataframe(df: pd.DataFrame):
-    """
-    Profiles the input DataFrame and returns key data statistics.
+def profile_dataframe(df: pd.DataFrame) -> None:
+    """Generate and print a profile report of a pandas DataFrame.
 
-    This includes:
-        - Column names and their data types
-        - Percentage of missing values in each column
-        - Descriptive statistics for numerical columns
-        - Count of categorical columns
+        The report provides a summary of key data characteristics, including column
+        names and their data types, the percentage of missing values, descriptive
+        statistics for numerical columns, and a count of unique values for
+        categorical columns.
 
-    Args:
-        df (pd.DataFrame): The input Pandas DataFrame.
+        Parameters
+        ----------
+        df : pd.DataFrame
+            The DataFrame to be profiled.
 
-    Returns:
-        STDOUT (str): Output is shown to terminal.
+        Returns
+        -------
+        None
+            This function prints its output to stdout and does not return anything.
 
-    Raises:
-        Nothing
+        Raises
+        ------
+        TypeError
+            If the input `df` is not a pandas DataFrame.
     """
 
     print("--- Profiling Data ---")
@@ -55,7 +59,24 @@ def profile_dataframe(df: pd.DataFrame):
     print()
     print("--- End Of Profiling ---")
 
+
+#-----------------------------------------------------------------------------------------------------------------------#
+
 def get_true_numerical_data(df: pd.DataFrame, id_threshold: float = 0.95) -> list[str]:
+    """
+    Lists all the important numerical columns by omitting Unique Key values
+    TODO: Add context-based listing
+
+    Parameters
+    ----------
+        df : pd.DataFrame
+            A Panda Dataframe
+
+    Returns
+    -------
+        true_numerical.columns : list[str]
+             List of all Important Numerical Columns
+    """
     numerical_cols = df.select_dtypes(include='number')
     cols_to_exclude = [
         col for col in numerical_cols.columns

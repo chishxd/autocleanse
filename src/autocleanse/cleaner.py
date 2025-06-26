@@ -1,17 +1,25 @@
 import pandas as pd
 
 def handle_missing_data(df : pd.DataFrame) -> pd.DataFrame:
-    '''
-    Function to clean the provided data by:
-    - Dropping Columns with too many Null values
-    - Imputing data in barely any empty values
+    """Handles missing data by imputing or dropping columns.
 
-    Args:
-        df (pd.DataFrame): A Panda Dataframe
+    This function cleans a DataFrame by applying the following rules:
+    1. Columns with over 60% missing values are dropped.
+    2. For remaining columns, missing values are imputed based on data type:
+        - Categorical columns (less than 5% unique values) are filled with the mode.
+        - Numerical columns are filled with the median.
+        - Other columns are filled with the string 'Unknown'.
 
-    Returns:
-        df (pd.DataFrame): The cleaned DataFrame with missing values handled and specified columns dropped.
-    '''
+    Parameters
+    ----------
+    df : pd.DataFrame
+        The input DataFrame with potentially missing values.
+
+    Returns
+    -------
+    pd.DataFrame
+        The cleaned DataFrame.
+    """
     print("Started Cleaning the Data...")
     nullCols = [] #To store Columns with more than 60% Null Values.
     for column in df.columns:
