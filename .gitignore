@@ -5,8 +5,12 @@ __pycache__/
 dist/
 *.egg-info/
 data/*
+notebooks/.ipynb_checkpoints/
 !data/train.csv
 # IDE / OS specific
 .vscode/
 .idea/
 .DS_Store
+
+#Others
+results/

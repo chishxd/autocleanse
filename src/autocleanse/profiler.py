@@ -54,3 +54,14 @@ def profile_dataframe(df: pd.DataFrame):
             print(f"{column} : {df[column].nunique()}") 
     print()
     print("--- End Of Profiling ---")
+
+def get_true_numerical_data(df: pd.DataFrame, id_threshold: float = 0.95) -> list[str]:
+    numerical_cols = df.select_dtypes(include='number')
+    cols_to_exclude = [
+        col for col in numerical_cols.columns
+        if numerical_cols[col].nunique() / len(df) > id_threshold
+    ]
+
+    true_numericals = numerical_cols.drop(columns=cols_to_exclude)
+
+    return list(true_numericals.columns)

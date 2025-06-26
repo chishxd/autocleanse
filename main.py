@@ -1,15 +1,17 @@
 import clarion
 from src.autocleanse.cleaner import handle_missing_data
-from src.autocleanse.profiler import profile_dataframe
+from src.autocleanse.profiler import profile_dataframe, get_true_numerical_data
 from src.autocleanse.utils import load_csv
 
 def main():
     df = load_csv("data/Synthetic_data.csv") #Change file name to your dataset, I have provided train.csv in data/
     # df = clarion.load_from_s3("admin", "password", "http://127.0.0.1:9000", "train.csv")
     if df is not None:
-        profile_dataframe(df)
-        new_df = handle_missing_data(df)
-        profile_dataframe(new_df)
+        true_cols = get_true_numerical_data(df)
+        print(true_cols)
+        # profile_dataframe(df)
+        # new_df = handle_missing_data(df)
+        # profile_dataframe(new_df)
     else:
         print("Could not load File properly")
 
