@@ -31,8 +31,9 @@ def transform_features(df: pd.DataFrame) -> pd.DataFrame:
     # We drop 'Name' and 'Ticket' because they are too unique and have been processed.
     # We drop 'Cabin' because it has too many missing values (from the cleaner phase).
     # We drop 'PassengerId' as it's an identifier.
-    cols_to_drop = ['Name','Ticket']
-    df_transformed = df_transformed.drop(columns=cols_to_drop, axis=1)
+    cols_to_drop = ['Name','Ticket', 'PassengerId', 'Cabin']
+    existing_cols_to_drop = [col for col in cols_to_drop if col in df_transformed.columns]
+    df_transformed = df_transformed.drop(columns=existing_cols_to_drop, axis=1)
 
     # --- 3. One-Hot Encode Categorical Features ---
     # Identify categorical columns to encode
