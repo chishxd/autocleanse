@@ -58,8 +58,3 @@ def handle_missing_data(df: pd.DataFrame) -> pd.DataFrame:
 
     print("Finished Cleaning the Data!")
     return df
-
-
-
-new_df = handle_missing_data(df)
-print(new_df.head)
