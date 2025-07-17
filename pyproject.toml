@@ -1,0 +1,29 @@
+[project]
+name = "autocleanse"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Chinmay Shet",email = "chishxd@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas (>=2.3.1,<3.0.0)",
+    "typer (>=0.16.0,<0.17.0)",
+    "rich (>=14.0.0,<15.0.0)",
+    "jinja2 (>=3.1.6,<4.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "autocleanse", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+black = "^25.1.0"
+isort = "^6.0.1"
+mypy = "^1.17.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
